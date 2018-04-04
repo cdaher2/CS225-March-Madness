@@ -217,7 +217,7 @@ public class BracketPane extends BorderPane {
                                 setCenter(null);
                                 /**
                                  * @update Grant & Tyler 
-                                 * 			panes are added as ScrollPanes to retain center alignment when moving through full-view and region-view
+                                 *    panes are added as ScrollPanes to retain center alignment when moving through full-view and region-view
                                  */
                                 center.add(new ScrollPane(panes.get(t)), 0, 0);
                                 center.setAlignment(Pos.CENTER);
@@ -266,6 +266,10 @@ public class BracketPane extends BorderPane {
                 currentBracket.resetSubtree(position);
         }
 
+        public int getSubTree(){
+          return displayedSubtree;
+        }
+        
         /**
          * Resets the bracket-display
          */

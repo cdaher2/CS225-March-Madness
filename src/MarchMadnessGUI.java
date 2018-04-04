@@ -197,10 +197,16 @@ public class MarchMadnessGUI extends Application {
      */
     private void clear(){
       
-      
-      bracketPane.clear();
-      bracketPane=new BracketPane(selectedBracket);
-      displayPane(bracketPane);
+      if(bracketPane.getSubTree() == 7){ // 7 is the name for the "full" view
+        selectedBracket=new Bracket(startingBracket); // full reset
+        bracketPane=new BracketPane(selectedBracket);
+        displayPane(bracketPane);
+      }
+      else{
+        bracketPane.clear();
+        bracketPane=new BracketPane(selectedBracket);
+        displayPane(bracketPane);
+      }
         
     }
     
