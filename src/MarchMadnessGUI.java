@@ -218,12 +218,17 @@ public class MarchMadnessGUI extends Application {
     
     private void finalizeBracket(){
        if(bracketPane.isComplete()){
-           btoolBar.setDisable(true);
-           bracketPane.setDisable(true);
-           simulate.setDisable(false);
-           login.setDisable(false);
-           //save the bracket along with account info
-           seralizeBracket(selectedBracket);
+	   
+           if(this.confirmFinalize())
+           {
+                   
+               btoolBar.setDisable(true);
+               bracketPane.setDisable(true);
+               simulate.setDisable(false);
+               login.setDisable(false);
+               //save the bracket along with account info
+               seralizeBracket(selectedBracket);
+           }
             
        }else{
             infoAlert("You can only finalize a bracket once it has been completed.");
@@ -451,6 +456,21 @@ public class MarchMadnessGUI extends Application {
     private boolean confirmReset(){
         Alert alert = new Alert(AlertType.CONFIRMATION, 
                 "Are you sure you want to reset the ENTIRE bracket?", 
+                ButtonType.YES,  ButtonType.CANCEL);
+        alert.setTitle("March Madness Bracket Simulator");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        return alert.getResult()==ButtonType.YES;
+    }
+    
+    /**
+     * Prompts the user to confirm that they want
+     * finalize their bracket
+     * @return true if the yes button clicked, false otherwise
+     */
+    private boolean confirmFinalize(){
+        Alert alert = new Alert(AlertType.CONFIRMATION, 
+                "Are you sure you want to finalize your bracket?", 
                 ButtonType.YES,  ButtonType.CANCEL);
         alert.setTitle("March Madness Bracket Simulator");
         alert.setHeaderText(null);
