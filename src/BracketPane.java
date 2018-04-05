@@ -343,9 +343,12 @@ public class BracketPane extends BorderPane {
                 nodeFinal2.setOnMouseClicked(clicked);
                 nodeFinal2.setOnMouseDragEntered(enter);
                 nodeFinal2.setOnMouseDragExited(exit);
-                nodeFinal0.setStyle("-fx-border-color: darkblue");
-                nodeFinal1.setStyle("-fx-border-color: darkblue");
-                nodeFinal2.setStyle("-fx-border-color: darkblue");
+                nodeFinal0.setStyle("-fx-border-color: darkblue;"
+                		+ "-fx-border-insets: 15 0 0 0;");
+                nodeFinal1.setStyle("-fx-border-color: darkblue;"
+                        + "-fx-border-insets: 15 0 0 0;");
+                nodeFinal2.setStyle("-fx-border-color: darkblue;"
+                        + "-fx-border-insets: 15 0 0 0;");
                 finalPane.setMinWidth(400.0);
 
                 return finalPane;
