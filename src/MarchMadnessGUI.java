@@ -340,7 +340,9 @@ public class MarchMadnessGUI extends Application {
         TextField enterUser = new TextField();
         loginPane.add(enterUser, 1, 1);
 
-        Label password = new Label("Password: ");
+        //Modded by Nikolas Brisbois
+        //The text tells the user that the passwords needs to be <= 6 letters
+        Label password = new Label("Password: \nmust be 6 letters or more");
         loginPane.add(password, 0, 2);
 
         PasswordField passwordField = new PasswordField();
@@ -362,7 +364,9 @@ public class MarchMadnessGUI extends Application {
 
             //added by Ana Gorohovschi
             //prevent execution of follow up code if username is null
-            if(name.length()==0)
+            //modded by Nikolas Brisbois
+            //prevents creation of account if the password is less then six words
+            if(name.length()==0 || playerPass.length() < 6)
             {
                 infoAlert("Enter your username and password");
                 return;
