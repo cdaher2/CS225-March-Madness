@@ -90,6 +90,8 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
      * @param root, everything below and including this is reset
      */
     public void resetSubtree(int root){
+
+        System.out.println(bracket.toString());
         if (root ==0){//special behavior to reset final 4
             for (int i = 0; i < 7; i++) {
                 bracket.set(i,"");
@@ -99,7 +101,7 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
             int child1 = 2 * root + 1;
             int child2 = 2 * root + 2;
 
-            if (child1 < 64) {//child is above round 1
+            if (child1 < 63) {//child is above round 1
                 resetSubtree(child1);
             }
             if (child2 < 64) {
