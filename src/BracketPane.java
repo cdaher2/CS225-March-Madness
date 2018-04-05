@@ -1,4 +1,5 @@
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
@@ -216,6 +217,9 @@ public class BracketPane extends BorderPane {
                 		buttonGrid.add(buttons.get(i), 1, 1);
                 }
                 buttonGrid.setAlignment(Pos.CENTER);
+                buttonGrid.setVgap(10);
+                buttonGrid.setHgap(10);
+                
 
                 // set default center to the button grid
                 this.setCenter(buttonGrid);
