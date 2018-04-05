@@ -198,7 +198,23 @@ public class BracketPane extends BorderPane {
                 // Initializes the button grid
                 GridPane buttonGrid = new GridPane();
                 for (int i = 0; i < buttons.size(); i++)
-                        buttonGrid.add(buttons.get(i), 0, i);
+                {
+                	if(i == 0)
+                		//add east button top left
+                        buttonGrid.add(buttons.get(i), 0, 0);
+                	else if(i == 1)
+                		//add east button bottom left
+                		 buttonGrid.add(buttons.get(i), 0, 2);
+                	else if(i == 2)
+                		//add midwest button top right
+                        buttonGrid.add(buttons.get(i), 2, 0);
+                	else if(i == 3)
+                		//add south button bottom right
+                		 buttonGrid.add(buttons.get(i), 2, 2);
+                	else
+                		//add full button in the middle
+                		buttonGrid.add(buttons.get(i), 1, 1);
+                }
                 buttonGrid.setAlignment(Pos.CENTER);
 
                 // set default center to the button grid
