@@ -416,10 +416,14 @@ public class MarchMadnessGUI extends Application {
             //prevent execution of follow up code if username is null
             //modded by Nikolas Brisbois
             //prevents creation of account if the password is less then six words
-            if(name.length()==0 || playerPass.length() < 6)
+            if(name.length()==0)
             {
                 infoAlert("Enter your username and password");
                 return;
+            }
+            else if(playerPass.length() < 6) {
+            	 infoAlert("Password is too short");
+            	 return;
             }
             
             if (playerMap.get(name) != null) {
