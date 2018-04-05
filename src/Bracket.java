@@ -91,7 +91,6 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
      */
     public void resetSubtree(int root){
 
-        System.out.println(bracket.toString());
         if (root ==0){//special behavior to reset final 4
             for (int i = 0; i < 7; i++) {
                 bracket.set(i,"");
