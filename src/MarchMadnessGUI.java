@@ -54,6 +54,7 @@ public class MarchMadnessGUI extends Application {
     private Button clearButton;
     private Button resetButton;
     private Button finalizeButton;
+    private Button help;
     
     //allows you to navigate back to division selection screen
     private Button back;
@@ -74,6 +75,7 @@ public class MarchMadnessGUI extends Application {
     private TableView table;
     private BracketPane bracketPane;
     private GridPane loginP;
+    private GridPane helpP;
     private TournamentInfo teamInfo;
     
     
@@ -100,6 +102,7 @@ public class MarchMadnessGUI extends Application {
         scoreBoard= new ScoreBoardTable();
         table=scoreBoard.start();
         loginP=createLogin();
+        helpP=createHelp();
         CreateToolBars();
         
         //display login screen
@@ -144,6 +147,19 @@ public class MarchMadnessGUI extends Application {
        }
         
         displayPane(table);
+    }
+    
+    /*
+     * added by Paul MacAllister  4.5.18
+     * displays a popup window with information on how to use the program
+     */
+    private void help(){
+      displayPane(helpP);
+      clearButton.setDisable(true);
+      resetButton.setDisable(true);
+      help.setDisable(true);
+      finalizeButton.setDisable(true);
+      back.setDisable(true);
     }
     
     /**
@@ -218,7 +234,7 @@ public class MarchMadnessGUI extends Application {
     
     private void finalizeBracket(){
        if(bracketPane.isComplete()){
-	   
+    
            if(this.confirmFinalize())
            {
                    
@@ -269,6 +285,7 @@ public class MarchMadnessGUI extends Application {
         clearButton=new Button("Clear");
         resetButton=new Button("Reset");
         finalizeButton=new Button("Finalize");
+        help=new Button("HELP");
         toolBar.getItems().addAll(
                 createSpacer(),
                 login,
@@ -279,6 +296,7 @@ public class MarchMadnessGUI extends Application {
         );
         btoolBar.getItems().addAll(
                 createSpacer(),
+                help,
                 clearButton,
                 resetButton,
                 finalizeButton,
@@ -291,6 +309,7 @@ public class MarchMadnessGUI extends Application {
     * sets the actions for each button
     */
     private void setActions(){
+        help.setOnAction(e->help());
         login.setOnAction(e->login());
         simulate.setOnAction(e->simulate());
         scoreBoardButton.setOnAction(e->scoreBoard());
@@ -316,6 +335,37 @@ public class MarchMadnessGUI extends Application {
         return spacer;
     }
     
+        /*
+     * added by Paul MacAllister 4/5/18
+     * creates the pane which the tutorial shows up in
+     */
+    private GridPane createHelp(){
+      GridPane helpPane = new GridPane();
+      helpPane.setAlignment(Pos.CENTER);
+      helpPane.setHgap(10);
+      helpPane.setVgap(10);
+      
+      Text tutorial = new Text("this is where the tutorial goes");
+      helpPane.add(tutorial,0,10);
+      
+      Button exitButton = new Button("Exit Tutorial");
+      helpPane.add(exitButton,0,50);
+      
+      exitButton.setOnAction(e->{
+        bracketPane=new BracketPane(selectedBracket);
+        clearButton.setDisable(false);
+        resetButton.setDisable(false);
+        help.setDisable(false);
+        finalizeButton.setDisable(false);
+        back.setDisable(false);
+        
+        displayPane(bracketPane);
+      });
+      
+      
+      return helpPane;
+    }
+
     
     private GridPane createLogin(){
         
