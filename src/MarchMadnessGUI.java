@@ -30,6 +30,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.paint.Color;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 /**
@@ -381,9 +385,20 @@ public class MarchMadnessGUI extends Application {
         loginPane.setVgap(10);
         loginPane.setPadding(new Insets(5, 5, 5, 5));
 
-        Text welcomeMessage = new Text("March Madness Login Welcome");
-        loginPane.add(welcomeMessage, 0, 0, 2, 1);
-
+        //Paul MacAllister 4.5.18
+        //slightly updated welcome message
+        Text welcomeMessage = new Text("Welcome to March Maddness sim!\nCreate an account to begin");
+        loginPane.add(welcomeMessage,0, 0);
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(3.0f);
+        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+        welcomeMessage.setEffect(ds);
+        welcomeMessage.setCache(true);
+        welcomeMessage.setX(10.0f);
+        welcomeMessage.setY(10.0f);
+        welcomeMessage.setFill(Color.GREEN);
+        welcomeMessage.setFont(Font.font(null, FontWeight.BOLD, 15));
+        
         Label userName = new Label("User Name: ");
         loginPane.add(userName, 0, 1);
 
@@ -422,8 +437,8 @@ public class MarchMadnessGUI extends Application {
                 return;
             }
             else if(playerPass.length() < 6) {
-            	 infoAlert("Password is too short");
-            	 return;
+              infoAlert("Password is too short");
+              return;
             }
             
             if (playerMap.get(name) != null) {
