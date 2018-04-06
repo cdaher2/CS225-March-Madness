@@ -90,7 +90,11 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
      * @param root, everything below and including this is reset
      */
     public void resetSubtree(int root){
-
+        for (int i = 0; i < 3; i++){
+            if (bracket.get(root).equals(bracket.get(i))){
+                bracket.set(i,"");
+            }
+        }
         if (root ==0){//special behavior to reset final 4
             for (int i = 0; i < 7; i++) {
                 bracket.set(i,"");
