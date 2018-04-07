@@ -286,6 +286,10 @@ public class BracketPane extends BorderPane {
                 currentBracket.resetSubtree(position);
         }
 
+        public int getSubTree(){
+                return displayedSubtree;
+        }
+
         /**
          * Resets the bracket-display
          */
