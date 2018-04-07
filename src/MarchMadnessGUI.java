@@ -413,13 +413,18 @@ public class MarchMadnessGUI extends Application {
         PasswordField passwordField = new PasswordField();
         loginPane.add(passwordField, 1, 2);
 
-        Button signButton = new Button("Sign in");
+        Button signButton = new Button("    Sign in    ");
+        
+        //added by Mike Moschella 4/7/2018. Button for solely creating a user
+        Button createButton = new Button("Create User "); 
         loginPane.add(signButton, 1, 4);
+        loginPane.add(createButton, 1, 5);
         signButton.setDefaultButton(true);//added by matt 5/7, lets you use sign in button by pressing enter
 
         Label message = new Label();
         loginPane.add(message, 1, 5);
 
+        //modded by Mike Moschella 4/7/2018.  Split functionality between "Sign in" and new "Create User" button
         signButton.setOnAction(event -> {
 
             // the name user enter
@@ -430,16 +435,13 @@ public class MarchMadnessGUI extends Application {
             //added by Ana Gorohovschi
             //prevent execution of follow up code if username is null
             //modded by Nikolas Brisbois
-            //prevents creation of account if the password is less then six words
             if(name.length()==0)
             {
-                infoAlert("Enter your username and password");
+                infoAlert("Enter your username and password.");
                 return;
             }
-            else if(playerPass.length() < 6) {
-              infoAlert("Password is too short");
-              return;
-            }
+            
+            
             
             if (playerMap.get(name) != null) {
                 //check password of user
@@ -457,6 +459,44 @@ public class MarchMadnessGUI extends Application {
                 }
 
             } else {
+                //modded by Mike Moschella, Sign in button no longer creates a user, functionality moved to "Create user"
+                
+                    infoAlert("No user with the Username \""  + name + "\" exists.");
+                    
+            }
+        });
+        
+        //modded by Mike Moschella 4/7/2018.  User Creation has been moved here from "Sign in" button.
+        createButton.setOnAction(event -> {
+
+            // the name user enter
+            String name = enterUser.getText();
+            // the password user enter
+            String playerPass = passwordField.getText();
+
+            //added by Ana Gorohovschi
+            //prevent execution of follow up code if username is null
+            //modded by Nikolas Brisbois
+            //prevents creation of account if the password is less then six words
+            if(name.length()==0)
+            {
+                infoAlert("Enter your new username and password.");
+                return;
+            }
+            else if(playerPass.length() < 6) {
+              infoAlert("Password is too short.  "
+                       +"\nIt must be 6 characters or longer.");
+              return;
+            }
+            
+            if (playerMap.get(name) != null) {
+                //check password of user
+                 
+               infoAlert("That username is taken. "
+                       + "\nPlease try again.");
+              
+
+            } else {
                 //check for empty fields
                 if(!name.equals("")&&!playerPass.equals("")){
                     //create new bracket
@@ -467,7 +507,7 @@ public class MarchMadnessGUI extends Application {
                     playerMap.put(name, tmpPlayerBracket);
                     selectedBracket = tmpPlayerBracket;
                     //alert user that an account has been created
-                    infoAlert("No user with the Username \""  + name + "\" exists. A new account has been created.");
+                    infoAlert("Your new account is \""  + name + "\". Welcome aboard!");
                     chooseBracket();
                 }
             }
