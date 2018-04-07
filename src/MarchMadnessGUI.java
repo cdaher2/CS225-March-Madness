@@ -55,7 +55,7 @@ public class MarchMadnessGUI extends Application {
     private Button login;
     private Button scoreBoardButton;
     private Button viewBracketButton;
-    private Button clearButton;
+    private Button returnToMenuButton;
     private Button resetButton;
     private Button finalizeButton;
     private Button help;
@@ -159,7 +159,7 @@ public class MarchMadnessGUI extends Application {
      */
     private void help(){
       displayPane(helpP);
-      clearButton.setDisable(true);
+      returnToMenuButton.setDisable(true);
       resetButton.setDisable(true);
       help.setDisable(true);
       finalizeButton.setDisable(true);
@@ -215,7 +215,7 @@ public class MarchMadnessGUI extends Application {
      * resets current selected sub tree
      * for final4 reset Ro2 and winner
      */
-    private void clear(){
+    private void returnToMenu(){
       
       
       bracketPane.clear();
@@ -286,7 +286,7 @@ public class MarchMadnessGUI extends Application {
         simulate=new Button("Simulate");
         scoreBoardButton=new Button("ScoreBoard");
         viewBracketButton= new Button("View Simulated Bracket");
-        clearButton=new Button("Clear");
+        returnToMenuButton=new Button("Return to Menu");
         resetButton=new Button("Reset");
         finalizeButton=new Button("Finalize");
         help=new Button("HELP");
@@ -301,7 +301,7 @@ public class MarchMadnessGUI extends Application {
         btoolBar.getItems().addAll(
                 createSpacer(),
                 help,
-                clearButton,
+                returnToMenuButton,
                 resetButton,
                 finalizeButton,
                 back=new Button("Choose Division"),
@@ -318,7 +318,7 @@ public class MarchMadnessGUI extends Application {
         simulate.setOnAction(e->simulate());
         scoreBoardButton.setOnAction(e->scoreBoard());
         viewBracketButton.setOnAction(e->viewBracket());
-        clearButton.setOnAction(e->clear());
+        returnToMenuButton.setOnAction(e->returnToMenu());
         resetButton.setOnAction(e->reset());
         finalizeButton.setOnAction(e->finalizeBracket());
         back.setOnAction(e->{
@@ -357,7 +357,7 @@ public class MarchMadnessGUI extends Application {
       
       exitButton.setOnAction(e->{
         bracketPane=new BracketPane(selectedBracket);
-        clearButton.setDisable(false);
+        returnToMenuButton.setDisable(false);
         resetButton.setDisable(false);
         help.setDisable(false);
         finalizeButton.setDisable(false);
