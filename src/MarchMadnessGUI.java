@@ -55,7 +55,7 @@ public class MarchMadnessGUI extends Application {
     private Button login;
     private Button scoreBoardButton;
     private Button viewBracketButton;
-    private Button returnToMenuButton;
+    private Button clearButton;
     private Button resetButton;
     private Button finalizeButton;
     private Button help;
@@ -104,6 +104,7 @@ public class MarchMadnessGUI extends Application {
         //the main layout container
         root = new BorderPane();
         scoreBoard= new ScoreBoardTable();
+        login = new Button("Logout");
         table=scoreBoard.start();
         loginP=createLogin();
         helpP=createHelp();
@@ -139,7 +140,7 @@ public class MarchMadnessGUI extends Application {
      */
     private void simulate(){
         //cant login and restart prog after simulate
-        login.setDisable(true);
+        //login.setDisable(true);
         simulate.setDisable(true);
         
        scoreBoardButton.setDisable(false);
@@ -159,7 +160,7 @@ public class MarchMadnessGUI extends Application {
      */
     private void help(){
       displayPane(helpP);
-      returnToMenuButton.setDisable(true);
+      clearButton.setDisable(true);
       resetButton.setDisable(true);
       help.setDisable(true);
       finalizeButton.setDisable(true);
@@ -171,7 +172,7 @@ public class MarchMadnessGUI extends Application {
      * 
      */
     private void login(){            
-        login.setDisable(true);
+        //login.setDisable(true);
         simulate.setDisable(true);
         scoreBoardButton.setDisable(true);
         viewBracketButton.setDisable(true);
@@ -215,13 +216,18 @@ public class MarchMadnessGUI extends Application {
      * resets current selected sub tree
      * for final4 reset Ro2 and winner
      */
-    private void returnToMenu(){
-      
-      
-      bracketPane.clear();
-      bracketPane=new BracketPane(selectedBracket);
-      displayPane(bracketPane);
-        
+    private void clear(){
+
+        if(bracketPane.getSubTree() == 7){ // 7 is the name for the "full" view
+            selectedBracket=new Bracket(startingBracket); // full reset
+            bracketPane=new BracketPane(selectedBracket);
+            displayPane(bracketPane);
+        }
+        else{
+                bracketPane.clear();
+                bracketPane=new BracketPane(selectedBracket);
+                displayPane(bracketPane);
+        }
     }
     
     /**
@@ -282,11 +288,11 @@ public class MarchMadnessGUI extends Application {
     private void CreateToolBars(){
         toolBar  = new ToolBar();
         btoolBar  = new ToolBar();
-        login=new Button("Login");
+//        login=new Button("Login");
         simulate=new Button("Simulate");
         scoreBoardButton=new Button("ScoreBoard");
         viewBracketButton= new Button("View Simulated Bracket");
-        returnToMenuButton=new Button("Return to Menu");
+        clearButton =new Button("Clear");
         resetButton=new Button("Reset");
         finalizeButton=new Button("Finalize");
         help=new Button("HELP");
@@ -301,7 +307,7 @@ public class MarchMadnessGUI extends Application {
         btoolBar.getItems().addAll(
                 createSpacer(),
                 help,
-                returnToMenuButton,
+                clearButton,
                 resetButton,
                 finalizeButton,
                 back=new Button("Choose Division"),
@@ -318,7 +324,7 @@ public class MarchMadnessGUI extends Application {
         simulate.setOnAction(e->simulate());
         scoreBoardButton.setOnAction(e->scoreBoard());
         viewBracketButton.setOnAction(e->viewBracket());
-        returnToMenuButton.setOnAction(e->returnToMenu());
+        clearButton.setOnAction(e-> clear());
         resetButton.setOnAction(e->reset());
         finalizeButton.setOnAction(e->finalizeBracket());
         back.setOnAction(e->{
@@ -357,7 +363,7 @@ public class MarchMadnessGUI extends Application {
       
       exitButton.setOnAction(e->{
         bracketPane=new BracketPane(selectedBracket);
-        returnToMenuButton.setDisable(false);
+        clearButton.setDisable(false);
         resetButton.setDisable(false);
         help.setDisable(false);
         finalizeButton.setDisable(false);
@@ -454,6 +460,8 @@ public class MarchMadnessGUI extends Application {
                     // load bracket
                     selectedBracket=playerMap.get(name);
                     chooseBracket();
+                    // Added by Vrej on April 5th, 2018 - Sets the logout to be usable again.
+                    login.setDisable(false);
                 }else{
                    infoAlert("The password you have entered is incorrect!");
                 }
@@ -462,6 +470,8 @@ public class MarchMadnessGUI extends Application {
                 //modded by Mike Moschella, Sign in button no longer creates a user, functionality moved to "Create user"
                 
                     infoAlert("No user with the Username \""  + name + "\" exists.");
+                    // Added by Vrej on April 5th, 2018 - Sets the logout to be usable again.
+                    login.setDisable(false);
                     
             }
         });
