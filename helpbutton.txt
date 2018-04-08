@@ -1,1 +1,17 @@
-Tutorial Goes Here.
+How to use Bracket Simulator program
+
+March Madness Bracket Simulator is a program that lets a user create their own bracket for the NCAA March Madness tournament. To use this program:
+
+1) Create a user name and password.
+
+2) Select which portion of the bracket you would like to view. East, West, Midwest, or South divisions. Or you may choose to view the entire bracket 
+   by clicking on Full. To go back to select division menu click Choose Division on the bottom menu. If you would like to reset the entire bracket 
+   click Reset.
+
+3) Select what team you would like to advance in a given match by clicking on your choice of winning team. To view team stats scroll over team name 
+   and right click.  
+
+4) Once ALL portions of bracket are filled in select Finalize on bottom menu. This will bring you a scoreboard that lists current user score rank 
+   against other users. To simulate a tournament click simulate on top menu bar.
+
+5) To create a new user select Login button on top menu.
