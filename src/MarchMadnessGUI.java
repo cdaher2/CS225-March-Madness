@@ -40,7 +40,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
+import java.util.Scanner;
+import java.io.FileNotFoundException;
 /**
  *  MarchMadnessGUI
  * 
@@ -441,18 +442,24 @@ public class MarchMadnessGUI extends Application {
      * added by Paul MacAllister 4/5/18
      * creates the pane which the tutorial shows up in
      */
-    private GridPane createHelp(){
+private GridPane createHelp(){
+      File thisFile = new File("helpbutton.txt");
       GridPane helpPane = new GridPane();
-      helpPane.setAlignment(Pos.CENTER);
+      helpPane.setAlignment(Pos.TOP_LEFT);
       helpPane.setHgap(10);
       helpPane.setVgap(10);
-      
-      Text tutorial = new Text("this is where the tutorial goes");
+      try{
+           Scanner f = new Scanner(thisFile);
+           String strings = "";
+           Text tutorial = new Text();
+           while(f.hasNextLine()){
+                    strings = strings + f.nextLine() + "\n";
+                    tutorial.setText(strings);
+                    }
+
       helpPane.add(tutorial,0,10);
-      
       Button exitButton = new Button("Exit Tutorial");
       helpPane.add(exitButton,0,50);
-      
       exitButton.setOnAction(e->{
         bracketPane=new BracketPane(selectedBracket);
         clearButton.setDisable(false);
@@ -460,9 +467,14 @@ public class MarchMadnessGUI extends Application {
         help.setDisable(false);
         finalizeButton.setDisable(false);
         back.setDisable(false);
-        
+        deleteButton.setDisable(false);
+
         displayPane(bracketPane);
-      });
+        });
+      }
+        catch(FileNotFoundException e){
+                    e.printStackTrace();
+                    }
       
       
       return helpPane;
