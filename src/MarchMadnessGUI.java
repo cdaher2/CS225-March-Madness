@@ -1,11 +1,6 @@
 //package marchmadness;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -124,7 +119,7 @@ public class MarchMadnessGUI extends Application {
     }
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         //try to load all the files, if there is an error display it
         try{
             teamInfo=new TournamentInfo();
@@ -441,13 +436,19 @@ public class MarchMadnessGUI extends Application {
      * added by Paul MacAllister 4/5/18
      * creates the pane which the tutorial shows up in
      */
-    private GridPane createHelp(){
+    private GridPane createHelp() throws IOException {
       GridPane helpPane = new GridPane();
       helpPane.setAlignment(Pos.CENTER);
       helpPane.setHgap(10);
       helpPane.setVgap(10);
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("helpbutton.txt")));
+        String helpstring = "", h;
+        while ((h = br.readLine()) != null){
+            helpstring = helpstring + h + '\n';
+        }
       
-      Text tutorial = new Text("this is where the tutorial goes");
+      Text tutorial = new Text(helpstring);
       helpPane.add(tutorial,0,10);
       
       Button exitButton = new Button("Exit Tutorial");
