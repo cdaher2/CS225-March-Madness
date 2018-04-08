@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class TournamentInfo{//renamed from teamInfo by matt 5/4
     HashMap<String, Team> teams;
-    static ArrayList<Integer> ranks;//Joe Added static ArrayList ranks to add to team names:)
+    static ArrayList<Integer> ranks;//Joe Added static ArrayList ranks to add to team names:) 4/6/2018
 
     public TournamentInfo() throws IOException{
         teams = new HashMap<>();
@@ -106,8 +106,6 @@ public class TournamentInfo{//renamed from teamInfo by matt 5/4
 
     }
 
-
-
     /**
      * reads Strings from initialMatches.txt into an ArrayList in order to construct the starting bracket
      * @authors Matt, Artem
@@ -124,7 +122,7 @@ public class TournamentInfo{//renamed from teamInfo by matt 5/4
             BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("initialMatches.txt")));
 
             while((name = br.readLine()) != null){
-                starting.add(name);//Joe Adding the ranking to each of the team names:)
+                starting.add(name);//Joe Adding the ranking to each of the team names:) <REMOVED RAN OUT OF TIME (Does work though:))>
                 count++;
             }
             
