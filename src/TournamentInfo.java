@@ -124,7 +124,7 @@ public class TournamentInfo{//renamed from teamInfo by matt 5/4
             BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream("initialMatches.txt")));
 
             while((name = br.readLine()) != null){
-                starting.add(name + " " + ranks.get(count));//Joe Adding the ranking to each of the team names:)
+                starting.add(name);//Joe Adding the ranking to each of the team names:)
                 count++;
             }
             
