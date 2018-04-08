@@ -1,5 +1,8 @@
-Tutorial Goes Here.
-Here's
-Some
-Test
-Data
+Welcome to the March Madness Bracket Simulator
+To use this program:
+
+First, enter the view you wish to edit by clicking on the appropriate region
+Once in the region, click on the team you expect will win their matchup
+Right-clicking on a team will bring up a window with auxiliary data
+Once you have filled out the bracket, click on Finalize, followed by Simulate
+You will then be presented with a list of scores, as well as the final simulated bracket, both of which can be accessed by clicking on the appropriate button at the top of the window
