@@ -15,7 +15,7 @@ Marquette
 Duke
 Troy
 Gonzaga
-South Dakota St.
+S. Dakota State
 Northwestern
 Vanderbilt
 Notre Dame
@@ -61,4 +61,4 @@ Kent State
 Dayton
 Wichita State
 Kentucky
-Northern Kentucky
+Northern KY
