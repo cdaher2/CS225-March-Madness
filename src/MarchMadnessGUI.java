@@ -156,8 +156,13 @@ public class MarchMadnessGUI extends Application {
         root.setTop(toolBar);   
         root.setBottom(btoolBar);
         Scene scene = new Scene(root);
+        /*
+         * add css to the scene by Alex
+         * 04/08/17
+         */
+        scene.getStylesheets().add("flux.css"); //by Alex
+        
         primaryStage.setMaximized(true);
-
         primaryStage.setTitle("March Madness Bracket Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
