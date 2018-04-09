@@ -1,0 +1,12 @@
+Feature Team’s Team Documentation
+
+Wensday - Joe finished Delete button 
+Thursday - Tee was working on the Window resizing:) Joe Finished Delete Button (Sent User back to login)
+Friday - Alex Color 
+Sunday - Tee committed (forgot to push:/), Alex committed Color, Peter (Finished around 4:30 (got distracted by life))committed and submitted 10:15ish
+
+Deadlines:
+Peter to have encryption done by Sunday night.
+Alex have Color complete Friday <Added other modifications on Sunday> *Deadline really Sunday [morning-midafternoon]:)
+Joe to have Delete button done by Thursday night:) 
+Tee to have window resizing done by Sunday:)
