@@ -35,6 +35,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+//added by Peter for password encryption
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *  MarchMadnessGUI
@@ -181,6 +185,12 @@ public class MarchMadnessGUI extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
+            System.out.println(Bracket.sha256("REKKLES IS A GOD"));
+            System.out.println(Bracket.sha256("REKKLES IS A GOD").length());
+        } catch(NoSuchAlgorithmException e){
+            System.out.println(e);
+        }
         launch(args);
     }
     
@@ -535,7 +545,12 @@ public class MarchMadnessGUI extends Application {
             String name = enterUser.getText();
             // the password user enter
             String playerPass = passwordField.getText();
-
+            //added by Peter for support of password encryption 
+            try {
+                playerPass = Bracket.sha256(playerPass);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(MarchMadnessGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
             //added by Ana Gorohovschi
             //prevent execution of follow up code if username is null
             //modded by Nikolas Brisbois
@@ -553,6 +568,14 @@ public class MarchMadnessGUI extends Application {
                 Bracket tmpBracket = this.playerMap.get(name);
                
                 String password1 = tmpBracket.getPassword();
+                //Added by Peter to support user files with unencrypted passwords
+                if (password1.length() != 64) {
+                    try {
+                        password1 = Bracket.sha256(password1);
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(MarchMadnessGUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
 
                 if (Objects.equals(password1, playerPass)) {
                     // load bracket

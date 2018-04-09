@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.io.Serializable; 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Bracket Class
@@ -30,7 +34,21 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
             bracket.add(0,"");
         }
     }
-
+    
+    /**
+     * @param s the string to be hashed
+     * @return the SHA256 hash of the string
+     * @throws java.security.NoSuchAlgorithmException
+     */
+    public static String sha256(String s) throws NoSuchAlgorithmException{
+        MessageDigest MD = MessageDigest.getInstance("SHA-256");
+        byte[] output = MD.digest(s.getBytes());
+        StringBuilder SB = new StringBuilder();
+        for (int i = 0; i < output.length; i++){
+            SB.append(Integer.toString((output[i] & 0xff) + 0x100, 16).substring(1));
+        }
+        return SB.toString();
+    } 
     /**
      * Constructor using another Bracket to start
      * @param starting, master bracket pre-simulation
@@ -143,9 +161,20 @@ public class Bracket implements Serializable //Hillary: This bracket class is to
      * set player's password to string parameter 
      * @param password, a String
      */
+    
+    //modified by Peter to support encrypting passwords
     public void setPassword(String password)
     {
-        this.password = password;
+        if (password.length() == 64){
+            this.password = password;
+        } else {
+            try {
+                this.password = sha256(password);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(Bracket.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
       /** 
