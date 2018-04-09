@@ -185,12 +185,6 @@ public class MarchMadnessGUI extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            System.out.println(Bracket.sha256("REKKLES IS A GOD"));
-            System.out.println(Bracket.sha256("REKKLES IS A GOD").length());
-        } catch(NoSuchAlgorithmException e){
-            System.out.println(e);
-        }
         launch(args);
     }
     
