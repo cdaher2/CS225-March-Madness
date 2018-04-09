@@ -1,6 +1,8 @@
 /*
 Css class for adding color to the GUI
-The purpose of this class is add color to the buttons and background
+The purpose of this class is add color to the buttons and background.
+Background color and buttons are uniformaly changed with linear gradient and bit of roundness. 
+Buttons changes color as you hover over. Buttons shrink a bit when you click on it.
     Author     : Alexandre Castro
 */
 
