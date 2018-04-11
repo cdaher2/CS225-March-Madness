@@ -20,3 +20,9 @@ Ben Florek
 9.User credentials should be cleared from login screen after logging out
 
 10..dynamically resize buttons to window resize(FIXED, not implemented)
+
+Joe Mitchell
+
+Also found #1
+
+
