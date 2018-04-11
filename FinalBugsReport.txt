@@ -25,4 +25,5 @@ Joe Mitchell
 
 Also found #1
 
-
+Vrej:
+11. The logout button isn't greyed out in the login menu, this was fixed by me, but another commit seems to have broken it again. (Vrej)
