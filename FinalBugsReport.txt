@@ -1,6 +1,6 @@
 Christian Daher
 
-1. User is able to log back in using the same credentials, but the file is deleted and the program has issues
+1. After account is deleted the user is able to log back in using the same credentials, but the user file is deleted and the program has issues
 
 2. Possible source of "null.ser(access denied)" exception discovered: when the user finalizes, logs out and then logs in, a duplicate user file called "null.ser" is created
 
