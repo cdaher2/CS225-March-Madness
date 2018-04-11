@@ -7,3 +7,16 @@ Christian Daher
 3. Clear button should be greyed out in full map view
 
 4. Delete account button should be greyed out in help view
+
+Ben Florek
+5. Start up the program on help menu
+	
+6.reset button should be greyed on individual bracket
+
+7.delete account should be moved to logout screen
+
+8.Add buttons to a collection of some kind (arraylist, group)
+
+9.User credentials should be cleared from login screen after logging out
+
+10..dynamically resize buttons to window resize(FIXED, not implemented)
