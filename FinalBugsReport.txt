@@ -17,13 +17,27 @@ Ben Florek
 
 8.Add buttons to a collection of some kind (arraylist, group)
 
-9.User credentials should be cleared from login screen after logging out
+9.User credentials should be cleared from login screen after logging out** (Joe as add on) other software may not do this(depending on the software)
 
 10..dynamically resize buttons to window resize(FIXED, not implemented)
 
 Joe Mitchell
 
-Also found #1
+1) Also found #1
+
+2) There should also be a total number of characters needed for the username:) (User can create usernames with length of 1 character XD)
+
+3) The blue lines in the full bracket do not fit nicely with all of the team names(New Mexico St.).
+
+4) Still do not see the scores of each team after finalization(Probably needed another week for this anyway:))
+
+5) Multiple finalizing creates multiples of the user in the scoreboard.(Finalize it three times you see each user three times in scoreboard(copies of user))
+
+6) Can create user's with the same password(Probably not super secure:O)
+
+7) Should have the division buttons replicate the US map (East be in the east, South be directly south, ect.)
+
+8) Buttons are not placed in one area.
 
 Vrej:
 11. The logout button isn't greyed out in the login menu, this was fixed by me, but another commit seems to have broken it again. (Vrej)
