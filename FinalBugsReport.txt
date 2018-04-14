@@ -60,3 +60,15 @@ Nikolas Brisbois
 	
 	5. Simulating the bracket should remove all account and the button should tell the user the round will end if they simulate 
 
+—————————————————————————————————————————————————————————————————————————
+
+Alex Castro
+
+	1- When you click the help button there is no exit button which the only option available is to logout. After logging out and then logging back in most of the buttons are grayed out. The only buttons that are visible is the “Logout and Delete Account” buttons. This present a problem because I can’t either choose a division or finalize the bracket. To fix this issue I have to quit the program and rerun it again. Not fun.
+
+	2- Hitting the “Clear” button in any division automatically erases everything without asking a confirmation to the user. It can be frustrating. 
+
+	3- Delete button is not working properly. When you delete an account it does not bring you to the home screen.
+
+—————————————————————————————————————————————————————————————————————————
+
