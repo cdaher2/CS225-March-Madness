@@ -39,6 +39,8 @@ Joe Mitchell
 
 8) Buttons are not placed in one area.
 
+9) The brackets do not resize with the window.
+
 Vrej:
 11. The logout button isn't greyed out in the login menu, this was fixed by me, but another commit seems to have broken it again. (Vrej)
 
