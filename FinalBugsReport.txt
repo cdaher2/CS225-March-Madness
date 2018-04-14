@@ -47,3 +47,16 @@ Vrej:
 Thien Dang 
 
 1. Currently when the window resizes the buttons resizes along with the window.(This is not a bug, and was an intented feature.)
+
+Nikolas Brisbois
+
+	1. Password should not except spaces 
+	
+	2. Unable to get out of help page
+	
+	3. if user logs out in help page, the delete account and log button will be the only things not grayed out if they log back in or create a new account
+	
+	4. Password should not remain when user logs out
+	
+	5. Simulating the bracket should remove all account and the button should tell the user the round will end if they simulate 
+
