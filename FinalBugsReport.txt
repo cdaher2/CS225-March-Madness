@@ -71,4 +71,8 @@ Alex Castro
 	3- Delete button is not working properly. When you delete an account it does not bring you to the home screen.
 
 —————————————————————————————————————————————————————————————————————————
+Ana Gorohovschi
+
+1. On the HELP dialog there is an EXIT button, but only the top portion of that is displayed. When the window is small there is no way to view the help text and EXIT button on the HELP dialog. There should be scroll bars.
+2. I also found some of the bugs mentioned above.
 
