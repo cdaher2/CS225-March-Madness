@@ -76,3 +76,11 @@ Ana Gorohovschi
 1. On the HELP dialog there is an EXIT button, but only the top portion of that is displayed. When the window is small there is no way to view the help text and EXIT button on the HELP dialog. There should be scroll bars.
 2. I also found some of the bugs mentioned above.
 
+___________________________________________________________________________
+
+Daniel Abraham
+
+1. Logout button should be greyed out at the sign in screen.
+2. Unable to view the whole screen content after resizing the window to samller size, a scroll bar would be a good idea. Note, this doesn't happen in full map or in a division.
+3.Also found #1-7 and 9
+
