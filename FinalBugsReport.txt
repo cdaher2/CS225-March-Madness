@@ -84,3 +84,6 @@ Daniel Abraham
 2. Unable to view the whole screen content after resizing the window to samller size, a scroll bar would be a good idea. Note, this doesn't happen in full map or in a division.
 3.Also found #1-7 and 9
 
+Michael Swann
+1. Finalizing a bracket will duplicate all scoreboard results and reduce their scores
+2. I also found the bug noted by others involving the HELP menu greying out all but two options until the application is restarted
