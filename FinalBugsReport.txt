@@ -87,3 +87,20 @@ Daniel Abraham
 Michael Swann
 1. Finalizing a bracket will duplicate all scoreboard results and reduce their scores
 2. I also found the bug noted by others involving the HELP menu greying out all but two options until the application is restarted
+
+
+----------------------------------------------------------------------------------
+
+Michael Moschella
+
+1. If your username is too long, the program will give you an error message that it cannot save your name
+
+2.  Delete account button is still next to finalize and choose division
+
+3. The full bracket does not fit on a single page
+
+4. You can still login after you delete the account
+
+5.  The help screen does not use the same toolbar as the other screens
+
+6.  If you create a bracket, reset or clear it and log out, it does not save the fact that you cleared the bracket.  The bracket is still there
